@@ -13,6 +13,8 @@ RUN apk add --no-cache \
     wget -q https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm \
          > /usr/local/bin/helm && \
     chmod +x /usr/local/bin/kubectl && \
-    chmod +x /usr/local/bin/helm
+    chmod +x /usr/local/bin/helm && \
+    curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash && \
+    mv kustomize /usr/local/bin/ 
 
 VOLUME ["/root/.config"]
